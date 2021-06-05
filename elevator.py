@@ -19,11 +19,11 @@ def floor_counter(constant, floor): #to check if same floor
     idk = -1
     if constant == floor :
         return " "
-    elif constant>floor: # if higher floor than requested it will go down a floor and print at a time
+    elif constant>floor: # if lower floor than requested it will go down a floor and print at a time
         for i in range(floor, constant):
             print(f"Moving down from floor {constant} to {floor}")
-            constant -=1
-    elif constant<floor:
+            constant -=1 #if i was used it creates from 0 to next number so instead used this to compensate a reverse range function which was not working
+    elif constant<floor: # if higher floor than requested it will go up a floor and print at a time
         for i in range(constant, floor):
             print(f"Moving up from floor {i} to {floor}")
 
