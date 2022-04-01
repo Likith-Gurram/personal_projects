@@ -18,7 +18,6 @@ def same_floor_check(floor, constant):# will return if True if the elevator is s
     return constant == floor
 
 def floor_counter(constant, floor): #to check if same floor
-    idk = -1
     if constant == floor :
         return " "
     elif constant>floor: # if lower floor than requested it will go down a floor and print at a time
