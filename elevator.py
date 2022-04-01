@@ -12,7 +12,7 @@ def display_state(state,floor):
     print(f"G|-->  {state[0]}  ")
 
 
-def same_floor_check(floor,constant): # will return if True if the elevator is same floor as requested by the user
+def same_floor_check(floor, constant):# will return if True if the elevator is same floor as requested by the user
     return constant == floor
 
 def floor_counter(constant, floor): #to check if same floor
@@ -35,15 +35,17 @@ while use_el:
     choice = input("Do you need to use the elevator? ").lower()
     if choice == "y":
             floor = int(input("Enter a floor to go to"))
+            if floor > 9 or floor < 0 :
+                 print("there is no such floor")
+                 break #solved the wrong number attempt
+
             if not same_floor_check(floor, constant):
-                floor_counter(constant,floor)
+                floor_counter(constant, floor)
                 state[floor] = 'DING DING!'
-                display_state(state,floor)
+                display_state(state, floor)
                 state[floor] = " " # to clear out the space and make it visible for next user
                 constant = floor
             else:
-                print("You are alreayd on same Floor bud! ")
+                print("You are already on same Floor bud! ")
     else:
         use_el = False
-
-
