@@ -2,6 +2,7 @@ This is a basic python program to simulate a lift operation for a builiding of 9
 - It can detect if you entered a wrong floor which doesnt exist
 - It can show you step by step on which floor sequentially either up or down like an animation in the lift showing the arrow
 - It can detect if you have already entered a same floor again and let you try again
+- It also remebers the floor and when used again it tries to count from the same floor
 
 Limitations: 
 - It is not scalable to user defined floors
