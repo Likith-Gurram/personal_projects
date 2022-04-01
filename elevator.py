@@ -1,3 +1,5 @@
+#when executing only use y
+
 state = [" "]*10
 def display_state(state,floor):
     print(f"9|-->  {state[9]}  ")
