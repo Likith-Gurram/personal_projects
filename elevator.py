@@ -1,5 +1,3 @@
-#when executing only use y
-
 state = [" "]*10
 def display_state(state,floor):
     print(f"9|-->  {state[9]}  ")
@@ -14,7 +12,7 @@ def display_state(state,floor):
     print(f"G|-->  {state[0]}  ")
 
 
-def same_floor_check(floor, constant):# will return if True if the elevator is same floor as requested by the user
+def same_floor_check(floor, constant): #will return if True if the elevator is same floor as requested by the user
     return constant == floor
 
 def floor_counter(constant, floor): #to check if same floor
@@ -22,11 +20,11 @@ def floor_counter(constant, floor): #to check if same floor
         return " "
     elif constant>floor: # if lower floor than requested it will go down a floor and print at a time
         for i in range(floor, constant):
-            print(f"Moving down from floor {constant} to {floor}")
+            print(f"Moving down from floor {constant} to {floor} ")
             constant -=1 #if i was used it creates from 0 to next number so instead used this to compensate a reverse range function which was not working
     elif constant<floor: # if higher floor than requested it will go up a floor and print at a time
         for i in range(constant, floor):
-            print(f"Moving up from floor {i} to {floor}")
+            print(f"Moving up from floor {i} to {floor} ")
 
 
 use_el = True
@@ -38,15 +36,20 @@ while use_el:
             floor = int(input("Enter a floor to go to"))
             if floor > 9 or floor < 0 :
                  print("there is no such floor")
-                 continue #solved the issue with using break and helps go ahead
+                 continue #resolves the issue with exiting with a break statement
 
             if not same_floor_check(floor, constant):
                 floor_counter(constant, floor)
                 state[floor] = 'DING DING!'
                 display_state(state, floor)
-                state[floor] = " " # to clear out the space and make it visible for next user
+                state[floor] = " "  # This ensures the DING DING is removed everytime it has given the result. Or else it causes the the DING to remain
                 constant = floor
             else:
                 print("You are already on same Floor bud! ")
+    if choice == "":
+        print("you have not selected anything")
+        continue
+
     else:
+        print("Thank you for using the elevator")
         use_el = False
