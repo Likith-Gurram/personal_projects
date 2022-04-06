@@ -35,7 +35,7 @@ while use_el:
     if choice == "y":
             floor = int(input("Enter a floor to go to"))
             if floor > 9 or floor < 0 :
-                 print("there is no such floor")
+                 print(f"there is no such floor as {floor}")
                  continue #resolves the issue with exiting with a break statement
 
             if not same_floor_check(floor, constant):
@@ -46,9 +46,9 @@ while use_el:
                 constant = floor
             else:
                 print("You are already on same Floor bud! ")
-    if choice == "":
-        print("you have not selected anything")
-        continue
+    elif choice == "":
+            print("you have not selected anything")
+            continue
 
     else:
         print("Thank you for using the elevator")
