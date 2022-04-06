@@ -6,4 +6,4 @@ This is a basic python program to simulate a lift operation for a builiding of 9
 
 Limitations: 
 - It is not scalable to user defined floors
-- It doesnt allow you to try agian if you enter a wrong floor
+
