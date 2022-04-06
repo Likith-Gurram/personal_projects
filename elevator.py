@@ -38,7 +38,7 @@ while use_el:
             floor = int(input("Enter a floor to go to"))
             if floor > 9 or floor < 0 :
                  print("there is no such floor")
-                 break #solved the wrong number attempt
+                 continue #solved the issue with using break and helps go ahead
 
             if not same_floor_check(floor, constant):
                 floor_counter(constant, floor)
