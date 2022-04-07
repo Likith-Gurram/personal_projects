@@ -33,23 +33,29 @@ while use_el:
     print(f"The elevator is at the {constant} floor at the moment")
     choice = input("Do you need to use the elevator? ").lower()
     if choice == "y":
-            floor = int(input("Enter a floor to go to"))
-            if floor > 9 or floor < 0 :
-                 print(f"there is no such floor as {floor}")
-                 continue #resolves the issue with exiting with a break statement
-
-            if not same_floor_check(floor, constant):
-                floor_counter(constant, floor)
-                state[floor] = 'DING DING!'
-                display_state(state, floor)
-                state[floor] = " "  # This ensures the DING DING is removed everytime it has given the result. Or else it causes the the DING to remain
-                constant = floor
+            floor = (input("Enter a floor to go to")) #This is to verify if the entered value is char or not.
+            if (floor[0]>="a" and floor[0]<="z" ) or (floor[0]>="A" and floor[0]<="Z" ):
+                print("you entered a character try again")
             else:
-                print("You are already on same Floor bud! ")
-    elif choice == "":
-            print("you have not selected anything")
-            continue
+                floor = int(floor) #as the input is taken as string first, it will convert to number and proceeed furthur.
+                if floor > 9 or floor < 0:
+                    print(f"there is no such floor as {floor}")
+                    continue  # resolves the issue with exiting with a break statement
 
-    else:
+                if not same_floor_check(floor, constant):
+                    floor_counter(constant, floor)
+                    state[floor] = 'DING DING!'
+                    display_state(state, floor)
+                    state[
+                        floor] = " "  # This ensures the DING DING is removed everytime it has given the result. Or else it causes the the DING to remain
+                    constant = floor
+                else:
+                    print("You are already on same Floor bud! ")
+
+    elif choice == "n":
         print("Thank you for using the elevator")
         use_el = False
+
+    else:
+        print("you entered something wrong")
+        continue
